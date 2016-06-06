@@ -163,6 +163,7 @@ result.hum = bme.readHumidity();
 
 //Считывание показаний с датчика CO2 по цифре
 //Автор # Алексей из комментариев http://www.2150692.ru/faq/87-co2-mhz19-arduino
+//Немного модифицирована по комментариям там же
 
  mySerial.write(cmd, 9);
   memset(response, 0, 9);
