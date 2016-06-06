@@ -15,7 +15,7 @@
 //Файл иконок
 #include "images.h"
 
-//Константы цвета
+//Директивы цвета
 #define BLACK   0x0000
 #define BLUE    0x001F
 #define RED     0xF800
@@ -25,12 +25,12 @@
 #define YELLOW  0xFFE0  
 #define WHITE   0xFFFF
 
-//Константы подключения дисплея
+//Директивы подключения дисплея
 #define __CS 10
 #define __DC 9
 #define __RS 8
 
-//Константы датчика BME180
+//Директивы датчика BME180
 #define BME_SCK 13
 #define BME_MISO 12
 #define BME_MOSI 11
