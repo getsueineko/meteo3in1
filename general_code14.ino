@@ -38,6 +38,8 @@
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
+//Используется в обновлении экрана, 0.5 чтобы не часто дергало экран и не было мерцания в результате
+//Из-за нее же по сути при переключении режимов отображения обновление значений происходит не сразу :(
 #define MAX_DEVIATION 0.5
 
 // I2C
@@ -158,6 +160,9 @@ MyDataOutput result = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 result.avtemp = bme.readTemperature();
 result.ap = (bme.readPressure() / 133.322);
 result.hum = bme.readHumidity();
+
+//Считывание показаний с датчика CO2 по цифре
+//Автор # Алексей из комментариев http://www.2150692.ru/faq/87-co2-mhz19-arduino
 
  mySerial.write(cmd, 9);
   memset(response, 0, 9);
@@ -660,7 +665,10 @@ float deviation = data.ap -  previous_ap;
   }
 
 
-/* Recode russian fonts from UTF-8 to Windows-1251 */
+// Recode russian fonts from UTF-8 to Windows-1251 
+// Автор arduinec. 
+// http://arduino.ru/forum/programmirovanie/rusifikatsiya-biblioteki-adafruit-gfx-i-vyvod-russkikh-bukv-na-displei-v-kodi
+
 String utf8rus(String source)
 {
   int i,k;
