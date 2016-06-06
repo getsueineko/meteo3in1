@@ -85,14 +85,14 @@ int buttonState = 0;
 int lastButtonState = 0;     
 
 void setup() {
-  display.begin();
+  display.begin(); //Инициализация дисплея
   display.cp437(true); //Поправка на 256-й символ в функции русификации
   
   bme.begin(); //Инициализация BMP280
     
   mySerial.begin(9600);
 
-  pinMode(buttonPin, INPUT);
+  pinMode(buttonPin, INPUT); //Кнопка
   
   uint16_t time = millis();
   time = millis() - time;
@@ -157,7 +157,7 @@ MyDataOutput GetSensorsData()
   
 MyDataOutput result = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-result.avtemp = bme.readTemperature();
+result.avtemp = bme.readTemperature(); //avtemp, потому что в начале вычислялась средняя температура с двух датчиков, при переходе на bme180 не стал менять имя
 result.ap = (bme.readPressure() / 133.322);
 result.hum = bme.readHumidity();
 
