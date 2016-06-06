@@ -1,4 +1,7 @@
- 
+// This part include all massiv data using PROGMEM
+// Here you can read about PROGMEM http://www.arduino.cc/en/Reference/PROGMEM
+// Converter for your bmp http://git.robotclass.ru/tools/bmptobin.html 
+
  const unsigned char PROGMEM temp[] = {
 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 
 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 
