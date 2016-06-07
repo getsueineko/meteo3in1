@@ -1,5 +1,5 @@
 При использовании библиотеки Adafruit_BME280_Library была исправлена директива:
-#define BME280_ADDRESS (0x76) в файле Adafruit_BME280.h
+#define BME280_ADDRESS (0x76) в файле Adafruit_BME280.h (по умолчанию 0x76)
 
 В Arduino\libraries\TFT_ILI9163C\_settings
 Была закоментирована красная плата и раскоментирована черная, поскольку у меня именно она:
