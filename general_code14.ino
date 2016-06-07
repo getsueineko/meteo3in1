@@ -410,98 +410,106 @@ float deviation = data.ap -  previous_ap;
 
 void GraphMode(MyDataOutput data) 
 {
- 
-  //Выводим иконки  
-  display.drawBitmap(0, 0, temp, 64, 49, WHITE);
-  display.setTextSize(1);
-  display.setCursor(100,10);
-  display.print("0");
-  display.setTextSize(3);
-  display.setCursor(105,15);
-  display.println("C");
-  display.setTextSize(5);
-  display.setCursor(35,65);
-  display.print(data.avtemp,0);
-  
-  if (data.avtemp > 30) 
-{
-   display.fillRect(0, 125, 128, 5, RED);
-  } 
-else 
-{
-   display.fillRect(0, 125, 128, 5, GREEN);  
-  }
-  
-  delay(5000);
-  display.clearScreen();
-  
-  display.drawBitmap(0, 0, hum, 33, 45, WHITE);
-  display.setTextSize(3);
-  display.setCursor(105,15);
-  display.println("%");
-  display.setTextSize(5);
-  display.setCursor(35,65);
-  display.print(data.hum,0); 
-   
-  if (data.hum > 70 || data.hum < 30 ) 
-{
-   display.fillRect(0, 125, 128, 5, RED);
-  } 
-else 
-{
-   display.fillRect(0, 125, 128, 5, GREEN);  
-  }
-  
-  delay(5000);
-  display.clearScreen();
-  
-  display.drawBitmap(0, 0, CO2, 64, 50, WHITE);
-  display.setTextSize(2);
-  display.setCursor(85,15);
-  display.println("ppm");
-  display.setTextSize(5);
 
-  if(data.co2 < 999)
+if (millis() - previousMillis > interval)
+{
+  previousMillis = millis();
+  switch (slide)
   {
-    display.setCursor(23,65);  
-    }
+    case 0:
+    display.clearScreen();
+    display.drawBitmap(0, 0, temp, 64, 49, WHITE);
+    display.setTextSize(1);
+    display.setCursor(100,10);
+    display.print("0");
+    display.setTextSize(3);
+    display.setCursor(105,15);
+    display.println("C");
+    display.setTextSize(5);
+    display.setCursor(35,65);
+    display.print(data.avtemp,0);
+  
+    if (data.avtemp > 30) 
+  {
+     display.fillRect(0, 125, 128, 5, RED);
+    } 
   else 
   {
-    display.setCursor(5,65);
-    }
-  display.print(data.co2,0); 
+         display.fillRect(0, 125, 128, 5, GREEN);  
+    } 
+        break;
+    case 1:
+     display.clearScreen();
+     display.drawBitmap(0, 0, hum, 33, 45, WHITE);
+     display.setTextSize(3);
+     display.setCursor(105,15);
+     display.println("%");
+     display.setTextSize(5);
+     display.setCursor(35,65);
+     display.print(data.hum,0); 
+   
+     if (data.hum > 70 || data.hum < 30 ) 
+   {
+      display.fillRect(0, 125, 128, 5, RED);
+     } 
+   else 
+   {
+    display.fillRect(0, 125, 128, 5, GREEN);  
+   }
+         break;
+    case 2: 
+     display.clearScreen();
+     display.drawBitmap(0, 0, CO2, 64, 50, WHITE);
+     display.setTextSize(2);
+     display.setCursor(85,15);
+     display.println("ppm");
+     display.setTextSize(5);
 
-  if (data.co2 > 750) 
-{
-   display.fillRect(0, 125, 128, 5, RED);
-  } 
-else 
-{
-   display.fillRect(0, 125, 128, 5, GREEN);  
-  }
-  
-  delay(5000);
-  display.clearScreen();
-  
-  display.drawBitmap(0, 0, airpress, 40, 49, WHITE);
-  display.setTextSize(3);
-  display.setCursor(85,15);
-  display.print(utf8rus("мм"));
-  display.setTextSize(5);
-  display.setCursor(23,65);
-  display.print(data.ap,0); 
+     if(data.co2 < 999)
+     {
+        display.setCursor(23,65);  
+       }
+     else 
+     {
+        display.setCursor(5,65);
+       }
+      display.print(data.co2,0); 
 
-  if (data.ap > 750) 
-{
-   display.fillRect(0, 125, 128, 5, RED);
-  } 
-else 
-{
-   display.fillRect(0, 125, 128, 5, GREEN);  
+     if (data.co2 > 750) 
+   {
+      display.fillRect(0, 125, 128, 5, RED);
+     } 
+   else 
+   {
+      display.fillRect(0, 125, 128, 5, GREEN);  
+     }
+         break;
+    case 3: 
+     display.clearScreen();
+     display.drawBitmap(0, 0, airpress, 40, 49, WHITE);
+     display.setTextSize(3);
+     display.setCursor(85,15);
+     display.print(utf8rus("мм"));
+     display.setTextSize(5);
+     display.setCursor(23,65);
+     display.print(data.ap,0); 
+
+   if (data.ap > 750) 
+   {
+      display.fillRect(0, 125, 128, 5, RED);
+     } 
+   else 
+   {
+      display.fillRect(0, 125, 128, 5, GREEN);  
+     }
+         break;
   }
-  
-  delay(5000);
-  display.clearScreen();
+  slide++;
+  if (slide > 3)
+  {
+    slide = 0;
+  }
+ }
   
 }
 
