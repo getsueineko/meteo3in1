@@ -82,7 +82,11 @@ const int buttonPin = 2;
 
 int buttonPushCounter = 0;   
 int buttonState = 0;        
-int lastButtonState = 0;     
+int lastButtonState = 0; 
+
+long previousMillis = 0;      
+long interval = 5000;
+int slide = 0;
 
 void setup() {
   display.begin(); //Инициализация дисплея
