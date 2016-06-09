@@ -7,9 +7,9 @@
 
     #define BME280_ADDRESS (0x76) 
 
-в файле Adafruit_BME280.h (по умолчанию 0x77)
+в файле ~\Arduino\libraries\Adafruit_BME280_Library (по умолчанию 0x77)
 
-В Arduino\libraries\TFT_ILI9163C\_settings
+В ~\Arduino\libraries\TFT_ILI9163C\_settings
 Была закоментирована красная плата и раскоментирована черная (иначе будет наблюдаться сдвиг экрана, как правило, вверх), поскольку у меня именно она:
 
     //#define __144_RED_PCB__//128x128
