@@ -15,4 +15,4 @@
     //#define __144_RED_PCB__//128x128
     #define __144_BLACK_PCB__//128x128
 
-![Схема соединения](https://yadi.sk/i/eiQYAwMfsQFCn)
+![Схема соединения](http://admin-to-admin.info/tmp/scheme.png)
