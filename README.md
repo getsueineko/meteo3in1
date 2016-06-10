@@ -15,6 +15,4 @@
     //#define __144_RED_PCB__//128x128
     #define __144_BLACK_PCB__//128x128
 
-<p align="center">
-![Схема соединения](http://admin-to-admin.info/tmp/scheme.png)
-</p>
+->![Схема соединения](http://admin-to-admin.info/tmp/scheme.png)<-
