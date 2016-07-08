@@ -1,3 +1,5 @@
+//https://github.com/getsueineko/meteo3in1
+
 //Импорт библиотек для работы с графикой
 #include <SPI.h>
 #include <Adafruit_GFX.h>
