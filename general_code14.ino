@@ -4,16 +4,20 @@
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <TFT_ILI9163C.h>
+
 //Импорт библиотек для работы по цифре с MH-Z19
 #include <SoftwareSerial.h>
+
 //Импорт библиотек для RTC DS1307RTC
 #include <Wire.h>
 #include <Time.h>
 #include <DS1307RTC.h>
+
 //Импорт библиотек для BMP280
-#include <SPI.h>
+//#include <SPI.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
+
 //Файл иконок
 #include "images.h"
 
@@ -109,7 +113,14 @@ void setup() {
   if(timeStatus()!= timeSet) 
      Serial.println("Unable to sync with the RTC");
   else
-     Serial.println("RTC has set the system time"); 
+     Serial.println("RTC has set the system time");
+   
+  // Block for manual set time (instead 111-116)
+  // clock.begin();
+  // clock.fillByYMD(2013,1,19);//Jan 19,2013
+  // clock.fillByHMS(15,28,30);//15:28 30"
+  // clock.fillDayOfWeek(SAT);//Saturday
+  // clock.setTime();//write time to the RTC chip
 }
 
 void loop() {
