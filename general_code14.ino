@@ -94,6 +94,9 @@ long previousMillis = 0;
 long interval = 5000;
 int slide = 0;
 
+//https://www.seeedstudio.com/blog/2019/11/19/arduino-tutorial-using-ds1307-rtc-with-arduino/
+//DS1307 clock;//define a object of DS1307 class
+
 void setup() {
   display.begin(); //Инициализация дисплея
   display.cp437(true); //Поправка на 256-й символ в функции русификации
